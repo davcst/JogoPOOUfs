@@ -40,11 +40,14 @@ public class GeradorTerreno {
 		// distribuir pedras com a mesma chance e ir passando pelo terreno até colocar todas
 		float chancePedra = ((float)numPedras / (float)(this.dimensao * this.dimensao));
 		while (pedrasRestantes > 0) {
+			loopMatriz:
 			for (int i = 0; i < dimensao; i++) {
 				for (int j = 0; j < dimensao; j++) {
 					if (Math.random() < chancePedra) {
 						terreno.setCelula(i, j, new Pedra());
 						pedrasRestantes--;
+						if (pedrasRestantes == 0)
+							break loopMatriz;
 					}
 				}
 			}

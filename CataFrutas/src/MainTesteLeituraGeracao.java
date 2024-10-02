@@ -36,10 +36,10 @@ public class MainTesteLeituraGeracao {
 		for (int i = 0; i < t.getTamanho(); i++) {
 			for (int j = 0; j < t.getTamanho(); j++)
 				if (t.getCelula(i, j) instanceof Pedra) {
-					System.out.print("*");
+					System.out.print(" P ");
 				}
 				else {
-					System.out.print(".");
+					System.out.print(" * ");
 				}
 			System.out.println();
 		}

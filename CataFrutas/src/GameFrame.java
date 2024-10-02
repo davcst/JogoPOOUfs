@@ -14,6 +14,7 @@ public class GameFrame extends JFrame{
 		this.pack(); //insere todos os componentes do frame
 		this.setVisible(true);
 		this.setLocationRelativeTo(null); //o jogo começa no meio da tela sempre
+		
 	}
 
 

@@ -11,7 +11,8 @@ import elementos.Jogador;
 public abstract class Fruta {
 	private boolean bichada;
 	public Fruta() {
-		this.bichada = false; // TODO: aleatorizar a possibilidade de ser bichada?
+		this.bichada = false; // TODO: Aleatorizar a possibilidade de ser bichada.
+							  // Necessário saber onde colocar a lógica e onde encontrar a chance de ser bichada.
 	}
 	/**
 	 * @return bichada

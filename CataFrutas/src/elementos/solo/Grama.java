@@ -5,13 +5,11 @@ import elementos.arvores.Arvore;
 import elementos.frutas.Fruta;
 
 public class Grama extends Chao {
-	private int tipoChao;
 	private Jogador jogadorPresente;
 	private Fruta frutaPresente;
 	private Arvore arvorePresente;
 	
 	public Grama() {
-		this.tipoChao = 1;
 		this.jogadorPresente = null;
 		this.frutaPresente = null;
 		this.arvorePresente = null;

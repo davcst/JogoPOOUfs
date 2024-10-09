@@ -1,6 +1,7 @@
 import elementos.*;
 import elementos.solo.*;
 import elementos.frutas.*;
+import elementos.arvores.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -14,7 +15,7 @@ public class MainTesteLeituraGeracao {
 		GeradorTerreno gerador = new GeradorTerreno();
 		BufferedReader reader = new BufferedReader(new FileReader(path));
 		while (reader.ready()) {
-			String[] linha = reader.readLine().split(" "); // "goiaba 1 1" => ["goiaba", "3", "1"]
+			String[] linha = reader.readLine().split(" "); // "goiaba 3 1" => ["goiaba", "3", "1"]
 			switch (linha[0]) {
 			case "dimensao":
 				gerador.setDimensao(Integer.parseInt(linha[1]));
@@ -81,6 +82,24 @@ public class MainTesteLeituraGeracao {
 					}
 					else if (((Grama)t.getCelula(i, j)).getFrutaPresente() instanceof Acerola) {
 						System.out.print(" e ");
+					}
+					else if (((Grama)t.getCelula(i, j)).getArvorePresente() instanceof Goiabeira) {
+						System.out.print(" G ");
+					}
+					else if (((Grama)t.getCelula(i, j)).getArvorePresente() instanceof Laranjeira) {
+						System.out.print(" L ");
+					}
+					else if (((Grama)t.getCelula(i, j)).getArvorePresente() instanceof Abacateiro) {
+						System.out.print(" A ");
+					}
+					else if (((Grama)t.getCelula(i, j)).getArvorePresente() instanceof Coqueiro) {
+						System.out.print(" C ");
+					}					
+					else if (((Grama)t.getCelula(i, j)).getArvorePresente() instanceof Amoreira) {
+						System.out.print(" O ");
+					}
+					else if (((Grama)t.getCelula(i, j)).getArvorePresente() instanceof Aceroleira) {
+						System.out.print(" E ");
 					}
 					else {
 						System.out.print(" * ");

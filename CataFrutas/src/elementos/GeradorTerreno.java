@@ -4,6 +4,7 @@ import java.util.Map;
 import java.util.HashMap;
 import elementos.solo.*;
 import elementos.frutas.*;
+import elementos.arvores.*;
 
 public class GeradorTerreno {
 	
@@ -11,7 +12,7 @@ public class GeradorTerreno {
 	private int pedras;
 	private int bichadas;
 	private int capacidadeMochila;
-	private Map<String, int[]> frutas;
+	private Map<String, int[]> frutas; // "goiaba": [3, 1]
 	
 	public GeradorTerreno() {
 		frutas = new HashMap<>();
@@ -32,6 +33,7 @@ public class GeradorTerreno {
 		Terreno t = new Terreno(this.dimensao);
 		gerarPedras(this.pedras, t);
 		gerarGrama(t);
+		distribuirArvores(this.frutas, t);
 		distribuirFrutas(this.frutas, t);
 		return t;
 	}
@@ -67,13 +69,62 @@ public class GeradorTerreno {
 		}
 		return;
 	}
+	
+	private void distribuirArvores(Map<String, int[]> frutas, Terreno terreno) {
+		for (Map.Entry<String, int[]> fruta: frutas.entrySet()) {
+			int arvoresRestantes = fruta.getValue()[0];
+			Arvore novaArvore = null;
+			float chanceArvore = (float) fruta.getValue()[0] / (float)(this.dimensao * this.dimensao);
+			switch (fruta.getKey()) {
+			case "maracuja": // Sem arvore de maracuja; pular.
+				continue;
+			case "goiaba": //TODO: arrumar um jeito melhor pra isso
+				novaArvore = new Goiabeira();
+				break;
+			case "laranja":
+				novaArvore = new Laranjeira();
+				break;
+			case "abacate":
+				novaArvore = new Abacateiro();
+				break;
+			case "coco":
+				novaArvore = new Coqueiro();
+				break;
+			case "amora":
+				novaArvore = new Amoreira();
+				break;
+			case "acerola":
+				novaArvore = new Aceroleira();
+				break;
+			default:
+				System.out.println("??? Não deveríamos ter chegado aqui. "+fruta.getKey());
+			}
+			
+			while (arvoresRestantes > 0) {
+				loopMatriz:
+				for (int i = 0; i < dimensao; i++) {
+					for (int j = 0; j < dimensao; j++) {
+						Chao solo = terreno.getCelula(i, j);
+						if (solo instanceof Grama && ((Grama) solo).getFrutaPresente() == null && ((Grama) solo).getArvorePresente() == null && Math.random() < chanceArvore) {
+							((Grama) solo).setArvorePresente(novaArvore);
+							arvoresRestantes--;
+							if (arvoresRestantes == 0) {
+								break loopMatriz;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	
 	private void distribuirFrutas(Map<String, int[]> frutas, Terreno terreno) {
 		for (Map.Entry<String, int[]> fruta: frutas.entrySet()) {
 			
 			int frutasRestantes = fruta.getValue()[1];
 			Fruta novaFruta = null;
 			// chance de uma fruta do início da partida estar numa célula da matriz M_n = 1 / n²;
-			float chanceFruta = (float)fruta.getValue()[0] / (float)(this.dimensao * this.dimensao);
+			float chanceFruta = (float)fruta.getValue()[1] / (float)(this.dimensao * this.dimensao);
 			switch (fruta.getKey()) {
 			case "goiaba": //TODO: arrumar um jeito melhor pra isso
 				novaFruta = new Goiaba();
@@ -105,7 +156,7 @@ public class GeradorTerreno {
 				for (int i = 0; i < dimensao; i++) {
 					for (int j = 0; j < dimensao; j++) {
 						Chao solo = terreno.getCelula(i, j);
-						if (solo instanceof Grama && ((Grama) solo).getFrutaPresente() == null && Math.random() < chanceFruta) {
+						if (solo instanceof Grama && ((Grama) solo).getFrutaPresente() == null && ((Grama) solo).getArvorePresente() == null && Math.random() < chanceFruta) {
 							((Grama) solo).setFrutaPresente(novaFruta);
 							frutasRestantes--;
 							if (frutasRestantes == 0) {

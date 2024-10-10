@@ -1,23 +1,29 @@
-
 import java.awt.Graphics;
-import java.awt.Image;
-import javax.swing.ImageIcon;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 import javax.swing.JFrame;
+
 
 public class Matriz extends JFrame {
 
     // Um array 3x3 para armazenar as imagens
-    Image[][] matrizImagens = new Image[3][3];
+    BufferedImage[][] matrizImagens = new BufferedImage[3][3];
 
     // Construtor da classe Matriz
     public Matriz() {
         // Carregar as imagens no array
-        for (int linha = 0; linha < 3; linha++) {
-            for (int coluna = 0; coluna < 3; coluna++) {
-                // Caminho para cada imagem (ajuste se necessário)
-            	String path = "imagens/comGrama/pedraGrama.jpg";  // Usando a mesma imagem para todas as células
-                matrizImagens[linha][coluna] = new ImageIcon(getClass().getResource(path)).getImage();
+        try {
+            for (int linha = 0; linha < 3; linha++) {
+                for (int coluna = 0; coluna < 3; coluna++) {
+                    // Caminho para cada imagem (ajuste se necessário)
+                    String path = "src/imagens/comGrama/pedraGrama.jpg";  // Ajuste o caminho conforme necessário
+                    matrizImagens[linha][coluna] = ImageIO.read(new File(path));
+                }
             }
+        } catch (IOException e) {
+            System.err.println("Erro ao carregar imagem: " + e.getMessage());
         }
 
         // Configurações da janela
@@ -44,8 +50,10 @@ public class Matriz extends JFrame {
                 int posX = 50 + coluna * larguraImagem;
                 int posY = 50 + linha * alturaImagem;
 
-                // Desenha a imagem na posição calculada
-                g.drawImage(matrizImagens[linha][coluna], posX, posY, larguraImagem, alturaImagem, this);
+                // Desenha a imagem na posição calculada (se a imagem for válida)
+                if (matrizImagens[linha][coluna] != null) {
+                    g.drawImage(matrizImagens[linha][coluna], posX, posY, larguraImagem, alturaImagem, this);
+                }
             }
         }
     }

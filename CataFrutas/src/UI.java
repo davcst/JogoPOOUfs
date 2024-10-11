@@ -7,6 +7,10 @@ import java.awt.RenderingHints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Classe de geração da UI
+ * @author davi
+ */
 public class UI {
 
     GamePanel gp;

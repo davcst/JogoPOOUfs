@@ -6,6 +6,10 @@ import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 
 
+/**
+ * Classe de matriz de imagens para apresentar na UI
+ * @author alisson
+ */
 public class Matriz extends JFrame {
 
     // Um array 3x3 para armazenar as imagens

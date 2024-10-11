@@ -5,9 +5,11 @@ import elementos.arvores.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.LineNumberReader;
 
-
+/**
+ * Classe de teste para conferir se o terreno está sendo gerado certo
+ * @author breno
+ */
 public class MainTesteLeituraGeracao {
 
 	public MainTesteLeituraGeracao(String path) throws IOException, NumberFormatException {
@@ -23,30 +25,15 @@ public class MainTesteLeituraGeracao {
 			case "pedras":
 				gerador.setPedras(Integer.parseInt(linha[1]));
 				break;
-			case "goiaba":
-				gerador.setFruta("goiaba", Integer.parseInt(linha[1]), Integer.parseInt(linha[2]));
+			case "bichadas":
+				// nao implementado
 				break;
-			case "laranja":
-				gerador.setFruta("laranja", Integer.parseInt(linha[1]), Integer.parseInt(linha[2]));
+			case "mochila":
+				// nao implementado
 				break;
-			case "abacate":
-				gerador.setFruta("abacate", Integer.parseInt(linha[1]), Integer.parseInt(linha[2]));
-				break;
-			case "coco":
-				gerador.setFruta("coco", Integer.parseInt(linha[1]), Integer.parseInt(linha[2]));
-				break;
-			case "maracuja":
-				gerador.setFruta("maracuja", Integer.parseInt(linha[1]), Integer.parseInt(linha[2]));
-				break;
-			case "amora":
-				gerador.setFruta("amora", Integer.parseInt(linha[1]), Integer.parseInt(linha[2]));
-				break;
-			case "acerola":
-				gerador.setFruta("acerola", Integer.parseInt(linha[1]), Integer.parseInt(linha[2]));
-				break;
-			//TODO: Continuar para ler os outros parâmetros do arquivo
 			default:
-				System.out.println("Item inválido ou não implementado: "+ linha[0]);
+				gerador.setFruta(linha[0], Integer.parseInt(linha[1]), Integer.parseInt(linha[2]));
+				break;
 			}
 		}
 		reader.close();

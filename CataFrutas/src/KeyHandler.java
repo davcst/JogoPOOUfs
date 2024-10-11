@@ -9,6 +9,10 @@ import java.util.Date;
 
 import javax.swing.JOptionPane;
 
+/**
+ * classe responsável pelo comportamento do teclado na janela do jogo
+ * @author davi
+ */
 public class KeyHandler implements KeyListener{
 	
 	int dimensao, pedras, Totalmaracujas,  Chaomaracujas, laranja, Pelaranja, abacate, Peabacate, coco,  Pecoco, acerola,  Peacerola, amora,  Peamora, goiaba,  Pegoiaba, bichada, mochila;

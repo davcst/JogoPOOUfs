@@ -3,6 +3,10 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import javax.swing.JFrame;
 
+/**
+ * Classe de teste de criação da interface grafica
+ * @author alisson
+ */
 public class Main2 extends JFrame {
 
     // Terreno contendo a matriz de imagens

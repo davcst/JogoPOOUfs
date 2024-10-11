@@ -4,7 +4,10 @@ import javax.swing.*;
 import java.util.Random;
 import javax.swing.JPanel;
 
-
+/**
+ * 
+ * @author davi
+ */
 public class GamePanel extends JPanel  implements Runnable{ //implements ActionListener
 	
 	static final int UNIT_SIZE = 16; //16x16 pois é o tamanho usado para bonecos em jogos 32bits

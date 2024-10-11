@@ -1,5 +1,9 @@
 import javax.swing.JFrame;
 
+/**
+ * Classe principal que inicializa o jogo e sua UI
+ * @author davi
+ */
 public class Main {
 
 	public static void main(String[] args) {

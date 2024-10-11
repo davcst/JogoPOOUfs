@@ -1,12 +1,10 @@
-/**
- * 
- */
 package elementos.frutas;
 
 import elementos.Jogador;
 
 /**
- * 
+ * Classe mãe das frutas que serão instanciadas no jogo
+ * @author breno
  */
 public abstract class Fruta {
 	private boolean bichada;

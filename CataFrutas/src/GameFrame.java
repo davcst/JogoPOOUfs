@@ -3,6 +3,10 @@ import java.awt.Dimension;
 
 import javax.swing.JFrame;
 
+/**
+ * frame do jogo
+ * @author davi
+ */
 public class GameFrame extends JFrame{
 
 	GameFrame(){

@@ -38,7 +38,7 @@ public class UI {
             String texto = "Cata Frutas";
 
             int x = valorXparaCentralizarNaTela(texto);
-            int y = gp.SCREEN_ALTURA / 3;
+            int y = gp.SCREEN_ALTURA / 5;
 
             g2.drawString(texto, x, y);
 
@@ -47,7 +47,7 @@ public class UI {
 
             texto = "NOVO JOGO";
             x = valorXparaCentralizarNaTela(texto);
-            y += 100;
+            y = gp.SCREEN_ALTURA/2;
             g2.drawString(texto, x, y);
             if (numeroComando == 0) {
                 g2.drawString(">", x - 40, y);
@@ -87,8 +87,8 @@ public class UI {
     		g2.setFont(g2.getFont().deriveFont(20F));
     		
     		String texto = "Selecione a dimensão da floresta (n >= 3)";
-    		int x = valorXparaCentralizarNaTela(texto);
-            int y = gp.SCREEN_ALTURA / 3;
+    		int x = 80;            
+    		int y = gp.SCREEN_ALTURA / 6;
             g2.drawString(texto, x, y);
             if (numeroComando == 0) {
                 g2.drawString(">", x - 40, y);
@@ -96,8 +96,7 @@ public class UI {
             
             
     		texto = "O número de pedras";
-    		x = valorXparaCentralizarNaTela(texto);
-            y += 60;
+    		x = 80;            y += 60;
     		g2.drawString(texto, x, y);
 //    		pedras = scanner.nextInt();
     		if (numeroComando == 1) {
@@ -105,8 +104,7 @@ public class UI {
             }
     		
     		texto = "O número total de Maracujás";
-    		x = valorXparaCentralizarNaTela(texto);
-            y += 60;
+    		x = 80;            y += 60;
     		g2.drawString(texto, x, y);
 //    		maracuja = scanner.nextInt();
     		if (numeroComando == 2) {
@@ -114,7 +112,7 @@ public class UI {
             }
     		
     		texto = "O número de frutas";
-    		x = valorXparaCentralizarNaTela(texto);
+    		x = 80;
             y += 60;
     		g2.drawString(texto, x, y);
 //    		frutas = scanner.nextInt();
@@ -123,7 +121,7 @@ public class UI {
             }
     		
     		texto = "O número de Árvores";
-    		x = valorXparaCentralizarNaTela(texto);
+    		x = 80;
             y += 60;
     		g2.drawString(texto, x, y);
 //    		arvores = scanner.nextInt();
@@ -132,7 +130,7 @@ public class UI {
             }
     		
     		texto = "A chance da fruta estar bichada";
-    		x = valorXparaCentralizarNaTela(texto);
+    		x = 80;
             y += 60;
     		g2.drawString(texto, x, y);
 //    		bichada = scanner.nextInt();
@@ -141,7 +139,7 @@ public class UI {
             }
     		
     		texto = "Capacidade da mochila";
-    		x = valorXparaCentralizarNaTela(texto);
+    		x = 80;
             y += 60;
     		g2.drawString(texto, x, y);
 //    		mochila = scanner.nextInt();
@@ -149,11 +147,20 @@ public class UI {
                 g2.drawString(">", x - 40, y);
             }
     		
-    		texto = "VOLTAR";
-    		x = valorXparaCentralizarNaTela(texto);
+    		texto = "Salvar";
+    		x = 80;
             y += 60;
     		g2.drawString(texto, x, y);
+//    		mochila = scanner.nextInt();
     		if (numeroComando == 7) {
+                g2.drawString(">", x - 40, y);
+            }
+    		
+    		texto = "VOLTAR";
+    		x = 80;
+            y += 100;
+    		g2.drawString(texto, x, y);
+    		if (numeroComando == 8) {
                 g2.drawString(">", x - 40, y);
             }
     		
